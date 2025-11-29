@@ -1,38 +1,275 @@
-.App {
+/* ---------- GLOBAL STYLES ---------- */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: hsl(219, 85%, 49%);
+  --card-bg: #f5f5f5;
+  --btn-bg: #007bff;
+  --btn-text: white;
+}
+
+.dark {
+  --bg: #161010;
+  --text: #f5f5f5;
+  --card-bg: #9c8e8e;
+  --btn-bg: #ff9800;
+  --btn-text: black;
+}
+
+/* ---------- TOP NAVBAR ---------- */
+
+
+.navbar span {
+  color: #ffe8b3;
+  text-decoration: underline;
+}
+
+/* ---------- PAGE TITLE ---------- */
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* ---------- LOGIN CARD ---------- */
+
+.login-container {
+  width: 380px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.2);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-container input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login-container button {
+  width: 95%;
+  padding: 12px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.login-container button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+
+
+/* -------------------------------
+   Profile Page Styling
+--------------------------------*/
+.profile-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 50px;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.profile-card {
+  background: var(--card-bg);
+  padding: 30px;
+  width: 380px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.profile-card h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: var(--text);
+}
+
+.profile-details {
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 18px;
+  color: var(--text-light);
+}
+
+.profile-details p {
+  margin: 10px 0;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff3b3b;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.logout-btn:hover {
+  opacity: 0.85;
+}
+
+
+/* -------------------------------
+   Elegant Theme Toggle Button
+--------------------------------*/
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  padding: 8px 18px;
+  font-size: 15px;
+  font-weight: 600;
+
+  background: var(--card-bg);
+  color: var(--text);
+  border: 2px solid var(--text);
+  border-radius: 25px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.theme-toggle:hover {
+  background: var(--text);
+  color: var(--card-bg);
+  transform: translateY(-2px);
+}
+
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  width: 100%;
+  padding: 12px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar .nav-left {
+  font-size: 16px;
+  color: var(--text);
+}
+
+.navbar .nav-right .api-status {
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.06);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.navbar .nav-right .api-status.error {
+  background: rgba(255, 70, 70, 0.12);
+  color: #ff4d4d;
+}
+
+/* navbar in dark mode */
+.navbar-dark {
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+/* ---------- APP ROOT ---------- */
+.app-root.light {
+  --bg: #f7f8fb;
+  --text: #111827;
+  --card-bg: #ffffff;
+  --text-light: #4b5563;
+  --shadow: 0 6px 20px rgba(16,24,40,0.08);
+}
+
+.app-root.dark {
+  --bg: #0f1724;
+  --text: #e6eef8;
+  --card-bg: #1f2937;
+  --text-light: #cbd5e1;
+  --shadow: 0 6px 20px rgba(2,6,23,0.6);
+}
+
+.app-root {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: all 0.25s ease;
+}
+
+/* make container narrower on wide screens */
+.app-container {
+  max-width: 780px;
+  margin: 48px auto;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  margin-top: 48px;
+  padding: 18px 24px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  text-align: center;
+  color: var(--text-light);
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.01),
+    rgba(0,0,0,0.00)
+  );
+}
+
+.footer-text {
+  font-style: italic;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.copyright {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .footer {
+    padding: 16px 12px;
   }
 }
